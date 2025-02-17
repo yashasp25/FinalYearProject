@@ -1,0 +1,139 @@
+{% extends 'baselogin.html' %}
+{% block title %} User Signup {% endblock title %}
+
+{% block form %}
+<!-- Add Material Symbols Variable Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_drop_down" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility" />
+<style>
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    cursor: pointer;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-container input,
+.input-container select {
+    width: 100%;
+    padding-right: 2.5rem; 
+}
+
+.input-container .material-symbols-outlined {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none; /* Prevent the icon from blocking interactions */
+}
+
+button {
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Styling for the 'Show' button inside the form */
+#togglePassword {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-left: 4px;
+    cursor: pointer;
+    display: inline-block;
+    transform: translateY(-1px);
+}
+
+#togglePassword:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+</style>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById('passwordField');
+        const toggleButton = document.getElementById('togglePassword');
+        
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleButton.textContent = "Hide";
+        } else {
+            passwordField.type = "password";
+            toggleButton.textContent = "Show";
+        }
+    }
+</script>
+
+<h2 class="content-title mb-4">
+    <strong>User Sign Up</strong>
+</h2>
+{% include "message.html" %}
+<form action="/signup" method="post">
+    <div class="form-group">
+        <input type="text" class="form-control mt-2" placeholder="Enter user ID" name="user_id" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control mt-2" placeholder="Enter Name" name="name" required>
+    </div>
+    <div class="form-group input-container">
+        <select id="city" class="form-control mt-2" name="city" required>
+            <option value="">Select a City</option>
+                        <option value="Bagalkot">Bagalkot</option>
+                        <option value="Ballari">Ballari</option>
+                        <option value="Bangaluru">Bangaluru</option>
+                        <option value="Bangalore Rural">Bangalore Rural</option>
+                        <option value="Belagavi">Belagavi</option>
+                        <option value="Bhadravati">Bhadravati</option>
+                        <option value="Bidar">Bidar</option>
+                        <option value="Chamarajanagar">Chamarajanagar</option>
+                        <option value="Chikkaballapur">Chikkaballapur</option>
+                        <option value="Chikkamagaluru">Chikkamagaluru</option>
+                        <option value="Chitradurga">Chitradurga</option>
+                        <option value="Davanagere">Davanagere</option>
+                        <option value="Dharwad">Dharwad</option>
+                        <option value="Gadag">Gadag</option>
+                        <option value="Gulbarga">Gulbarga</option>
+                        <option value="Hassan">Hassan</option>
+                        <option value="Hospet">Hospet</option>
+                        <option value="Hubballi">Hubballi</option>
+                        <option value="Kalaburagi">Kalaburagi</option>
+                        <option value="Karwar">Karwar</option>
+                        <option value="Kolar">Kolar</option>
+                        <option value="Koppal">Koppal</option>
+                        <option value="Madikeri">Madikeri</option>
+                        <option value="Mandya">Mandya</option>
+                        <option value="Mangalore">Mangalore</option>
+                        <option value="Mysuru">Mysuru</option>
+                        <option value="Raichur">Raichur</option>
+                        <option value="Ramanagara">Ramanagara</option>
+                        <option value="Shivamogga">Shivamogga</option>
+                        <option value="Sirsi">Sirsi</option>
+                        <option value="Tumkur">Tumkur</option>
+                        <option value="Udupi">Udupi</option>
+                        <option value="Vijayapura">Vijayapura</option>
+                        <option value="Yadgir">Yadgir</option>
+        </select>
+        <span class="material-symbols-outlined">arrow_drop_down</span>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control mt-2" placeholder="Enter Password" id="passwordField" name="dob" required>
+        <button type="button" id="togglePassword" onclick="togglePasswordVisibility()">Show</button>
+    </div>
+    
+    <br>
+    <button class="btn btn-info" type="submit">Sign up</button>
+</form>
+Click here to <a class="text-info" href="/login"> login</a>
+{% endblock form %}

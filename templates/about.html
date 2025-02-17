@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/assets/css/main.css" rel="stylesheet">
+  <style>
+    .impact, .mission {
+      background-color: #e9f7ef; /* Light green background */
+      border-left: 4px solid #198754; /* Green border for emphasis */
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body class="about-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="static/assets/img/logo.png" alt="AgriCulture">
+        <!-- <h1 class="sitename">AgriCulture</h1>  -->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/" >Home</a></li>
+          <li><a href="/about" class="active">About Us</a></li>
+          <li><a href="/ind">Service</a></li>
+          {% if current_user.is_authenticated %}
+
+          <li class="dropdown"><a href="/login"><span>Welcome {{current_user.name}}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </li>
+          {% else %}
+          <li class="dropdown"><a href="/login"><span>Sign In</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="/login">User login</a></li>
+              <li><a href="/admin">Admin login</a></li>
+            </ul>
+          </li>
+          {% endif %}
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(static/assets/img/page-title-bg.webp);">
+      <div class="container position-relative">
+        <h1>About</h1>
+        <p>Empowering farmers through innovative solutions for sustainable agriculture.</p>
+      </div>
+    </div><!-- End Page Title -->
+    
+<!-- About Section -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center" data-aos="fade-up">
+        <h2>Our Mission</h2>
+        <div class="mission">
+        <p class="text-muted">
+          We aim to revolutionize agriculture by providing technology-driven solutions for plant disease detection.
+          Our system leverages Deep Learning to help farmers identify crop diseases early and take timely actions,
+          improving productivity and reducing losses.
+        </p>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <h3>What We Do</h3>
+        <div class="impact">
+        <p class="text-muted">
+          Our platform uses Convolutional Neural Networks (CNNs) to classify diseases in tomato and potato crops. 
+          Farmers can upload leaf images to our application, which provides accurate disease classifications along
+          with actionable solutions.
+        </p>
+      </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <h3>Our Impact</h3>
+        <div class="impact">
+        <p class="text-muted">
+          We provide farmers with an advanced tool to detect plant diseases early, ensuring timely action to protect their crops.
+          In addition, we connect farmers to local pesticide dealers, offering tailored solutions for their specific agricultural needs.
+          This integrated approach minimizes losses and enhances productivity.
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End About Section -->
+
+    
+    <!-- Team Section -->
+    <section class="team-15 team section" id="team">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Meet the Team</h2>
+      </div><!-- End Section Title -->
+
+      <div class="content">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="static/assets/img/team/team-1.jpg" alt="Image" class="img-fluid">
+                  
+                </figure>
+                <div class="person-contents">
+                  <h3>Yashas P</h3>
+                  <span class="position">4JN21CS190</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="static/assets/img/team/team-2.jpg" alt="Image" class="img-fluid">
+                </figure>
+                <div class="person-contents">
+                  <h3>Varun K T</h3>
+                  <span class="position">4JN21CS181</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="static/assets/img/team/team-3.jpg" alt="Image" class="img-fluid">
+                  
+                </figure>
+                <div class="person-contents">
+                  <h3>Sagar H S</h3>
+                  <span class="position">4JN21CS134</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="person">
+                <figure>
+                  <img src="static/assets/img/team/team-4.jpg" alt="Image" class="img-fluid">
+                </figure>
+                <div class="person-contents">
+                  <h3>Vismaya Tejassu P N</h3>
+                  <span class="position">4JN21CS189</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Team Section -->
+
+      <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

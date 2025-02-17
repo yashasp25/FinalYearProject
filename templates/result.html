@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prediction Result</title>
+</head>
+<body>
+    <h2>Prediction Result</h2>
+    <p><strong>Predicted Class:</strong> {{ predicted_class }}</p>
+    <img src="{{ image_path }}" alt="Uploaded Image" style="max-width:300px;">
+
+    <h3>Dealers in Your City ({{ current_user.city }})</h3>
+    {% if dealers %}
+        <ul>
+            {% for dealer in dealers %}
+                <li>{{ dealer.dealer_name }} - {{ dealer.dealer_phone }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No dealers found in your city.</p>
+    {% endif %}
+</body>
+</html>

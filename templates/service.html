@@ -1,0 +1,32 @@
+<!-- service.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service - Disease Diagnosis</title>
+</head>
+<body>
+    <h1>Plant Disease Diagnosis</h1>
+    <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+        <label for="file">Upload a leaf image:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction:</h2>
+        <p>Predicted Disease: {{ prediction['predicted_class'] }}</p>
+        <p>Confidence Score: {{ prediction['confidence_score'] }}</p>
+        <h3>Solution:</h3>
+        <p>{{ solution }}</p>
+
+        <h3>Pesticide Dealers in your city:</h3>
+        <ul>
+            {% for dealer in dealers %}
+                <li>{{ dealer.dealer_name }} - {{ dealer.dealer_phone }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
